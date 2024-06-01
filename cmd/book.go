@@ -14,7 +14,7 @@ var ErrFail = errors.New("FAIL")
 
 func NewBookCmd(db *bbolt.DB) *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "book",
+		Use:   "BOOK",
 		Short: "Book seat(s) on a flight",
 		Long:  `Book seat(s) on a flight by providing the seat number and number of consecutive seats to book as arguments.`,
 		Args:  cobra.ExactArgs(2),
@@ -59,7 +59,7 @@ func book(db *bbolt.DB, seats []*data.Seat) error {
 }
 
 func getAvailableSeats(db *bbolt.DB, s *data.Seat, qty uint) ([]*data.Seat, error) {
-	if err := data.IsValidNumber(qty); err != nil {
+	if err := data.IsValidQuantity(qty); err != nil {
 		return nil, err
 	}
 

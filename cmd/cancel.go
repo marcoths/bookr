@@ -11,7 +11,7 @@ import (
 
 func NewCancelCmd(db *bbolt.DB) *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "cancel",
+		Use:   "CANCEL",
 		Short: "Cancel seat(s) on a flight",
 		Long:  `Cancel booked seat(s) on a flight by providing the seat number and number of consecutive seats to cancel as arguments.`,
 		Args:  cobra.ExactArgs(2),
@@ -47,7 +47,7 @@ func runCancel(db *bbolt.DB) RunEfn {
 }
 
 func getBookedSeats(db *bbolt.DB, s *data.Seat, qty uint) ([]*data.Seat, error) {
-	if err := data.IsValidNumber(qty); err != nil {
+	if err := data.IsValidQuantity(qty); err != nil {
 		return nil, err
 	}
 

@@ -24,52 +24,52 @@ func TestCommands(t *testing.T) {
 	}{
 		{
 			name:       "Book",
-			args:       []string{"book", "A0", "1"},
+			args:       []string{"BOOK", "A0", "1"},
 			assertFunc: assert.NoError,
 		},
 		{
 			name:       "Cancel A0",
-			args:       []string{"cancel", "A0", "1"},
+			args:       []string{"CANCEL", "A0", "1"},
 			assertFunc: assert.NoError,
 		},
 		{
 			name:       "Book A0 again",
-			args:       []string{"book", "A0", "1"},
+			args:       []string{"BOOK", "A0", "1"},
 			assertFunc: assert.NoError,
 		},
 		{
 			name:       "Book A0 expect error",
-			args:       []string{"book", "A0", "1"},
+			args:       []string{"BOOK", "A0", "1"},
 			assertFunc: assert.Error,
 		},
 		{
 			name:       "Book A1",
-			args:       []string{"book", "A1", "1"},
+			args:       []string{"BOOK", "A1", "1"},
 			assertFunc: assert.NoError,
 		},
 		{
 			name:       "Book A2 4 seats",
-			args:       []string{"book", "A2", "4"},
+			args:       []string{"BOOK", "A2", "4"},
 			assertFunc: assert.NoError,
 		},
 		{
 			name:       "Book A5 1 seat expect error",
-			args:       []string{"book", "A5", "1"},
+			args:       []string{"BOOK", "A5", "1"},
 			assertFunc: assert.Error,
 		},
 		{
 			name:       "Book A6 3 seats expect error",
-			args:       []string{"book", "A6", "3"},
+			args:       []string{"BOOK", "A6", "3"},
 			assertFunc: assert.Error,
 		},
 		{
 			name:       "Book A8 1 seats expect error",
-			args:       []string{"book", "A8", "1"},
+			args:       []string{"BOOK", "A8", "1"},
 			assertFunc: assert.Error,
 		},
 		{
 			name:       "Book U1 1 seats expect error",
-			args:       []string{"book", "U1", "1"},
+			args:       []string{"BOOK", "U1", "1"},
 			assertFunc: assert.Error,
 		},
 	}

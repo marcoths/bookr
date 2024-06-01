@@ -41,7 +41,7 @@ func FromString(s string) (*Seat, error) {
 		return nil, fmt.Errorf("%w: %w", err, OutOfBoundsError)
 	}
 
-	if err := IsValidNumber(uint(number)); err != nil {
+	if err := IsValidSeat(uint(number)); err != nil {
 		return nil, fmt.Errorf("seat number %d: %w", number, err)
 	}
 
@@ -51,7 +51,14 @@ func FromString(s string) (*Seat, error) {
 	return &Seat{ID: s, Row: row, Number: uint(number)}, nil
 }
 
-func IsValidNumber(number uint) error {
+func IsValidSeat(number uint) error {
+	if !(number >= 0 && number <= 7) {
+		return OutOfBoundsError
+	}
+	return nil
+}
+
+func IsValidQuantity(number uint) error {
 	if !(number > 0 && number <= 7) {
 		return OutOfBoundsError
 	}
