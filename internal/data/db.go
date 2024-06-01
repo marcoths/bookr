@@ -182,7 +182,6 @@ func Seed(db *bolt.DB, data []byte) error {
 // Register creates the necessary buckets for the application
 func Register(db *bolt.DB) error {
 	return db.Update(func(tx *bolt.Tx) error {
-		// Create all the buckets except auth, it will be created in setParameters()
 		name := bucket.Seats.Name()
 		if _, err := tx.CreateBucketIfNotExists(name); err != nil {
 			return fmt.Errorf("create bucket %s: %w", name, err)
