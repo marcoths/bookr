@@ -52,7 +52,7 @@ func FromString(s string) (*Seat, error) {
 }
 
 func IsValidNumber(number uint) error {
-	if !(number >= 0 && number <= 7) {
+	if !(number > 0 && number <= 7) {
 		return OutOfBoundsError
 	}
 	return nil
